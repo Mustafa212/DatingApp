@@ -1,0 +1,39 @@
+<div class="home d-flex flex-column  align-items-center position-relative pt-3">
+
+   
+    <div class="dot dot1"></div>
+    <div class="dot dot2"></div>
+    <div class="dot dot3"></div>
+    <div class="dot dot4"></div>
+    <div class="dot dot5"></div>
+    @if (!registered) {
+        <div class="bigcircle"></div>
+
+        <div class="text-capitalize text-center mt-5 z-2">
+            <h2 class="fa-5x meet">Meet the</h2>
+            <h1 class="fa-6x ">Chosen <span class="one">O</span>ne</h1>
+        </div>
+        <img [src]="'/assets/girl.png'" alt="" width="500px"  class="position-absolute bottom-0 girl">
+        <img [src]="'/assets/massege.png'" alt="" width="350px"  class="position-absolute message">
+        <img [src]="'/assets/arrow.png'" alt="" width="300px"  class="position-absolute arrow">
+        <img [src]="'/assets/emojie.png'" alt="" width="250px"  class="position-absolute  emojie">
+        <img [src]="'/assets/girlaura.png'" alt="" width="650px"  class="position-absolute bottom-0 z-3 girlaura">
+        
+        <img [src]="'/assets/hi.png'" alt="" width="150px"  class="position-absolute hi">
+
+        <div class="maininfo position-absolute bottom-0  d-flex flex-column align-items-start mb-5 ">
+            <h3 class="maininfo-talk ps-2">All you have to do is <span style="color: var(--primary-color);">S</span>ign<span style="color: var(--primary-color);">U</span>p!...</h3>
+            <button class="btn btn-dark rounded-4 pe-4 text-center signup text-capitalize position-relative" (click)="registerToggle()"> <h3>signup&nbsp;<span class="a position-absolute ">></span></h3></button>
+        </div>
+
+    }@else {
+        <div class="position-absolute top-50 left-50 translate-middle-x translate-middle-y ">
+            <app-register [usersFromHomeComponent]="users" (cancelRegister)="CancelRegister($event)"></app-register>
+        
+        </div>
+    }
+
+
+   
+
+</div>

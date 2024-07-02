@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #FF4B5C; /* Bright Red */
+    --secondary-color: #FFC0CB; /* Light Pink */
+    --accent-color: #4B0082; /* Indigo */
+    --background-color: #FFFFFF; /* White */
+    --highlight-color: #FFD700; /* Gold */
+    --text-color: #333333; /* Dark Grey */
+    --light-text-color: #666666; /* Light Grey */
+  }

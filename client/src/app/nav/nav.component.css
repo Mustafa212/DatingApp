@@ -1,0 +1,89 @@
+.navbar-brand::first-letter{
+    color: var(--primary-color);
+}
+.nav-item{
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+    font-weight: 400;
+}
+.nav-item:first-child:first-letter{
+    color: var(--light-text-color);
+
+}
+.nav-item:hover{
+    transform: translateX(-5px);
+    color: var(--text-color);
+    text-shadow: 5px 15px 25px black;
+
+
+    ::first-letter{
+        color: var(--secondary-color);
+        font-weight: 500;
+
+    }
+
+}
+
+.loginInfo {
+    background-color: #dddddd2e;
+}
+
+.loginInfo:focus {
+
+    border:none;
+    box-shadow: 0px 0px 5px rgb(107, 107, 107);
+}
+.login{
+
+    border: 0.5px solid #ddd;
+    transition: 0.5s all ease-in-out ;
+
+}
+.login:hover {
+
+    box-shadow: inset 100px 0px 0px 0px  black;
+    color: white;
+}
+
+
+.cubid{
+    width: 250px;
+    height: 180px;
+    background-image: url('/assets/cubid2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: -30px;
+    left: -125px;
+    z-index: -1;
+
+}
+
+
+.dropdown-toggle , .dropdown-item{
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--light-text-color);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item {
+    transition: 0.5s all ease-in-out;
+  }
+  
+  .dropdown-item:hover {
+    transform: translateX(5px); 
+
+
+   
+  }
+  .dropdown-item:hover::first-letter{
+    color: var(--primary-color);
+    font-weight: 700;
+
+    }

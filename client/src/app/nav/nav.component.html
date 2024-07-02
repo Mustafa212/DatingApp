@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-transparent"  >
+    <div class="container">
+      <a class="navbar-brand fw-bold ">Ily</a>
+
+
+
+        @if (accountservice.currentuser()) {
+
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link ">Matches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link ">Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link ">Messages</a>
+            </li>
+    
+        
+          </ul>
+
+
+        }
+        @if (accountservice.currentuser()) {
+          <div class="dropdown position-relative" dropdown>
+            <img dropdownToggle class="dropdown-toggle z-2 " [src]="'/assets/man2.png'" width="55px" height="55px"/>
+            <div class="cubid position-absolute">
+            </div>
+
+            <div class="dropdown-menu rounded-4  " *dropdownMenu>
+              <a class="dropdown-item"> Edit Profile</a>
+              <div class="dropdown-divider mx-3"></div>
+              <a class="dropdown-item" (click)="logout()"> LogOut</a>
+
+            </div>
+            
+
+          </div>
+        }
+        @if (!accountservice.currentuser()) {
+
+          <form class="d-flex" #LoginForm="ngForm" (ngSubmit)="login()" >
+            <input
+            name="username"
+              [(ngModel)]="model.username"
+             class="form-control me-2 loginInfo  rounded-4"  
+             placeholder="UserName" 
+             autocomplete="off"
+             
+             >
+            <input
+              name="password"
+              [(ngModel)]="model.password"
+              class="form-control me-2 loginInfo rounded-4"  
+              placeholder="Password" 
+              type="password">
+            <button class="btn login px-3 rounded-4" type="submit">Login</button>
+          </form>
+        }
+      </div>
+  </nav>
