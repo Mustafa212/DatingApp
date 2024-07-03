@@ -86,4 +86,19 @@
     color: var(--primary-color);
     font-weight: 700;
 
-    }
+}
+
+.xd{
+    transform: translateX(-5px);
+    color: var(--text-color);
+    text-shadow: 5px 15px 25px black;
+    transition: 0.5s all ease-in-out;
+
+
+   
+}
+.xd::first-letter{
+    color: var(--secondary-color);
+    font-weight: 500;
+
+}
