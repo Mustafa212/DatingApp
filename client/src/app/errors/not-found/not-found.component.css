@@ -1,0 +1,15 @@
+.goback{
+    border: 1px solid #5b45c2;
+    transition: 0.5s;
+}
+
+span{
+    color: #5b45c2;
+}
+
+
+.goback:hover{
+    background-color: #5b45c2;
+    color: white;
+
+}
