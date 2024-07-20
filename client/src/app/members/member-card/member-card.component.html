@@ -1,0 +1,67 @@
+
+<div class="contain">
+
+  <div class="__card  mt-5 me-5">
+  
+  
+    <div class="card__border">
+  
+      <div class="card__fill">
+        <img src="{{members().photoUrl || './assets/user.png'}}" alt="{{members().knownAs}}">
+      </div>
+    </div>
+    <h3 class="card__name">{{members().knownAs}}</h3>
+    <span class="card__city">{{members().city}}</span>
+    <!-- card Info -->
+     <div class="info">
+      <div class="info__icon">
+        <i class="fa fa-circle-info "></i>
+      </div>
+
+      <div class="info__border">
+        <div class="info__fill">
+          <img src="{{members().photoUrl}}" alt="{{members().knownAs}}" class="info__img">
+        </div>
+
+      </div>
+
+      <div class="info__data">
+        <h3 class="info__name">{{members().knownAs}}</h3>
+        <span>{{members().age}}</span>
+        <span>{{members().country}}</span>
+      
+      </div>
+
+      <div class="info__social">
+          <a routerLink="/members/{{members().username}}" class="info__social-link me-2">
+            <i class="fa fa-user "  style="color: rgba(3, 123, 123, 0.6);"></i>
+
+          </a>
+          <a  class="info__social-link me-2">
+            <i class="fa fa-heart " style="color: rgb(240, 1, 1);"></i>
+
+          </a>
+          <a  class="info__social-link ">
+            <i class="fa fa-envelope " style="color: rgb(182, 51, 3);"></i>
+
+          </a>
+      </div>
+     </div>
+
+  
+  
+  
+  
+    <!-- <div class="card-img-wrapper">
+  
+      <img src="{{members().photoUrl}}" class="card-img-top" alt="{{members().knownAs}}">
+    </div>
+      <div class="card-body">
+  
+        <h5 class="card-title">      <i class="fa fa-user "></i>
+          {{members().knownAs}}</h5>
+        <p class="card-text">{{members().city}}</p>
+      </div> -->
+  </div>
+</div>
+

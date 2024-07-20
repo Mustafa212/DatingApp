@@ -8,4 +8,67 @@
     --highlight-color: #FFD700; /* Gold */
     --text-color: #333333; /* Dark Grey */
     --light-text-color: #666666; /* Light Grey */
-  }
+    --gradient-color:linear-gradient(
+      180deg,
+      hsl(178,35%,45%),
+      hsl(178,55%,28%)
+    );
+    --card-color: hsl(178, 72%, 66%);
+}
+
+
+body {
+  background-color: #f7f7f7; /* Light gray */
+}
+
+.tab-panel {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.nav-tabs > li > a{
+  background-color: transparent;
+  font-weight: 500;
+  color: #a1a1a1 !important;
+
+}
+.nav-tabs{
+  border: none;
+}
+.nav-tabs > li.active > a.active{
+  background-color: transparent;
+  color: var(--primary-color) !important;
+
+}
+.member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+  border: 0;
+  background: transparent !important;
+  color: #333333 ;
+}
+
+.member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+
+.member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+
+.member-tabset > .nav-tabs > li.active {
+  border-bottom: 4px solid var(--secondary-color);
+  position: relative;
+}
+
+.member-tabset > .nav-tabs > li.active > a {
+  border: 0 !important;
+  color: #333333;
+}
+
+.member-tabset > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+

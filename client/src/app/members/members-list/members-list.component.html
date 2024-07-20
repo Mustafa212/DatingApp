@@ -1,1 +1,11 @@
-<p>members-list works!</p>
+<div class="container">
+     <div class="mt-5 row row-gap-0 column-gap-5">
+        @for (item of members; track $index) {
+
+            <div class="col-2 mt-5">
+
+                <app-member-card [members]="item"></app-member-card>
+            </div>
+        }
+     </div>
+</div>

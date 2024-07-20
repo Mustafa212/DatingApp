@@ -7,13 +7,13 @@
     <div class="dot dot4"></div>
     <div class="dot dot5"></div>
     @if (!registered) {
-        <div class="bigcircle"></div>
+        <div class="bigcircle" ></div>
 
         <div class="text-capitalize text-center mt-5 z-2">
             <h2 class="fa-5x meet">Meet the</h2>
             <h1 class="fa-6x ">Chosen <span class="one">O</span>ne</h1>
         </div>
-        <img [src]="'/assets/girl.png'" alt="" width="500px"  class="position-absolute bottom-0 girl">
+        <img [src]="'/assets/girl.png'" alt="" width="500px"  class="position-absolute bottom-0 girl" >
         <img [src]="'/assets/massege.png'" alt="" width="350px"  class="position-absolute message">
         <img [src]="'/assets/arrow.png'" alt="" width="300px"  class="position-absolute arrow">
         <img [src]="'/assets/emojie.png'" alt="" width="250px"  class="position-absolute  emojie">
@@ -27,10 +27,10 @@
         </div>
 
     }@else {
-        <div class="position-absolute top-50 left-50 translate-middle-x translate-middle-y ">
+        <!-- <div class="position-absolute top-50 left-50 translate-middle-x translate-middle-y ">
             <app-register [usersFromHomeComponent]="users" (cancelRegister)="CancelRegister($event)"></app-register>
         
-        </div>
+        </div> -->
     }
 
 

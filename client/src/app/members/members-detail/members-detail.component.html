@@ -1,1 +1,96 @@
-<p>members-detail works!</p>
+
+
+
+
+@if (member) {
+
+
+    <div class="container details row">
+        <div class="col-4">
+
+            <div class="card">
+                <div class="card-img-top">
+                    <img 
+                        src="{{member.photoUrl|| './assets/user.png'}}" 
+                        alt="{{member.knownAs}}"
+                        width="100%"
+                        style="border-radius: 5%;"
+                    
+                    
+                    
+                    >
+                </div>
+
+                <div class="card-body">
+                    <div>
+                        <strong>
+                            Location:
+                        </strong>
+                        <p>{{member.city}} , {{member.country}}</p>
+                    </div>
+                    <div>
+                        <strong>
+                            Age:
+                        </strong>
+                        <p>{{member.age}} </p>
+                    </div>
+                    <div>
+                        <strong>
+                            last active:
+                        </strong>
+                        <p>{{member.lastActive}}</p>
+                    </div>
+                    <div>
+                        <strong>
+                            member since:
+                        </strong>
+                        <p>{{member.created}}</p>
+                    </div>
+                </div>
+                <div class="card-footer ">
+
+                    <a  class="info__social-link me-4">
+                        <i class="fa fa-heart " style="color: rgb(240, 1, 1);"></i>
+            
+                      </a>
+                      <a  class="info__social-link ">
+                        <i class="fa fa-envelope " style="color: rgb(182, 51, 3);"></i>
+            
+                      </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-8">
+
+            <tabset class="member-tabset">
+                <tab heading="About {{member.knownAs}}" class="p-3">
+                    <h4>Intro</h4>
+                    <p>{{member.introduction}}</p>
+                    <h4>Looking For</h4>
+                    <p>{{member.lookingFor}}</p>
+                </tab>
+                <tab heading="interests"  class="p-3">
+                    <h4>interests</h4>
+                    <p>{{member.interests}}</p>
+                </tab>
+                <tab heading="Photos"  class="p-3" #photoTab="tab">
+                    @if (photoTab.active) {
+
+                        <gallery [items]="images" class="gallery"> 
+    
+                        </gallery>
+                    }
+
+                </tab>
+                <tab heading="messages"  class="p-3">
+                    <p>mess</p>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    
+
+
+}
