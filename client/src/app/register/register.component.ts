@@ -2,8 +2,6 @@ import { Component, Input, inject, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_Services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { TestErrorsComponent } from '../errors/test-errors/test-errors.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +15,6 @@ export class RegisterComponent {
   private toast = inject(ToastrService)
 
   model:any = {}
-  usersFromHomeComponent = input.required<any>()
   cancelRegister=output<boolean>()
   register(){
     this.accounteService.register(this.model).subscribe({

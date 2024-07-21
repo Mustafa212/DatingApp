@@ -24,13 +24,14 @@
         <div class="maininfo position-absolute bottom-0  d-flex flex-column align-items-start mb-5 ">
             <h3 class="maininfo-talk ps-2">All you have to do is <span style="color: var(--primary-color);">S</span>ign<span style="color: var(--primary-color);">U</span>p!...</h3>
             <button class="btn btn-dark rounded-4 pe-4 text-center signup text-capitalize position-relative" (click)="registerToggle()"> <h3>signup&nbsp;<span class="a position-absolute ">></span></h3></button>
+            
         </div>
 
     }@else {
-        <!-- <div class="position-absolute top-50 left-50 translate-middle-x translate-middle-y ">
-            <app-register [usersFromHomeComponent]="users" (cancelRegister)="CancelRegister($event)"></app-register>
+        <div class="position-absolute top-50 left-50 translate-middle-x translate-middle-y ">
+            <app-register  (cancelRegister)="CancelRegister($event)"></app-register>
         
-        </div> -->
+        </div>
     }
 
 

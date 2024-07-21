@@ -30,6 +30,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/aos/dist/aos.css",
+              "node_modules/ngx-spinner/animations/ball-atom.css",
               "src/styles.css"
             ],
             "scripts": []

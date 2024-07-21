@@ -1,0 +1,34 @@
+.details{
+    margin-top:6% ;
+    height: 75vh;
+    margin-left: 10%;
+}
+
+.about_the_human{
+    width: 30%;
+    height: 100%;
+}
+
+.card-footer{
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+}.info__social-link{
+    transition: 0.3s all ease-in-out;
+}
+.info__social-link:hover{
+
+    cursor: pointer;
+    transform: translateY(-5px);
+
+}
+.card{
+    border: none;
+    background-color: transparent;
+}
+.card-img-top{
+    border: none;
+}
+.card-body{
+   padding: 10px 10px;
+}

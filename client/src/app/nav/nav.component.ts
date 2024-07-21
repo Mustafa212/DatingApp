@@ -15,9 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 export class NavComponent {
   private router = inject(Router)
   private toast = inject(ToastrService)
-
   accountservice = inject(AccountService);
 
+  
   model:any = {}
 
   login(){

@@ -1,4 +1,5 @@
 ﻿
+using System.Security.Claims;
 using API.Data;
 using API.DTOs;
 using API.interfaces;
@@ -10,7 +11,7 @@ namespace API.Controllers;
 
 [Authorize]
 
-public class UsersController(IUserRepositry userRepositry) : BaseApiController
+public class UsersController(IUserRepositry userRepositry, IMapper mapper) : BaseApiController
 {
     [HttpGet]
    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers(){
@@ -30,6 +31,27 @@ public class UsersController(IUserRepositry userRepositry) : BaseApiController
 
     return user;
 
+
+   }
+
+   [HttpPut]
+   public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto){
+
+    var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+    if(username == null) return BadRequest("no username fonud in token");
+
+    var user = await userRepositry.GetUsersByUsernameAsync(username);
+
+    if(user == null) return BadRequest("user not found");
+
+    mapper.Map(memberUpdateDto , user);
+
+    if(await userRepositry.SaveAllAsync()){
+        return NoContent();
+    }
+
+    return BadRequest("failed to update user"); 
 
    }
 

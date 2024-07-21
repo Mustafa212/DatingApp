@@ -37,12 +37,12 @@
             <div class="dropdown-menu rounded-4  " *dropdownMenu>
               <div class="d-flex dropdown-item">
                 <h6 class="text-capitalize text-center mt-3 me-2">Welcome {{accountservice.currentuser()?.username}}</h6>
-                <img dropdownToggle class=" z-2 mt-1 " [src]="'/assets/man2.png'" width="40px" height="40px"/>
+                <img  class=" z-2 mt-1 " [src]="'/assets/man2.png'" width="40px" height="40px"/>
               </div>
          
 
               <hr>
-              <a class="dropdown-item"> Edit Profile</a>
+              <a class="dropdown-item" routerLink="/member/edit"> Edit Profile</a>
               <div class="dropdown-divider mx-3"></div>
               <a class="dropdown-item" (click)="logout()"> LogOut</a>
 
