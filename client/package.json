@@ -23,6 +23,7 @@
     "bootstrap": "^5.3.3",
     "font-awesome": "^4.7.0",
     "ng-gallery": "^11.0.0",
+    "ng2-file-upload": "^7.0.1",
     "ngx-bootstrap": "^12.0.0",
     "ngx-spinner": "^17.0.0",
     "ngx-toastr": "^19.0.0",
@@ -50,6 +51,11 @@
       "@angular/core": "$@angular/core",
       "@angular/animations": "$@angular/animations",
       "@angular/forms": "$@angular/forms"
+    }
+    ,
+    "ng2-file-upload": {
+      "@angular/common": "$@angular/common",
+      "@angular/core": "$@angular/core"
     }
   }
 }

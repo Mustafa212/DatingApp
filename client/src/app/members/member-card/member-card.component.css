@@ -141,6 +141,7 @@ span{
   }
   .info__social-link:hover {
     transform: translateY(-0.25rem);
+    cursor: pointer;
   }
   .info__social-icon {
     display: inline-flex;

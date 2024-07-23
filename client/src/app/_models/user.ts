@@ -1,4 +1,5 @@
-export type User = {
+export type User=  {
     username:string;
-    token:string
+    token:string;
+    photoUrl?:string;
 }

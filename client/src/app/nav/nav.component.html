@@ -30,14 +30,22 @@
 
         @if (accountservice.currentuser()) {
           <div class="dropdown position-relative" dropdown>
-            <img dropdownToggle class="dropdown-toggle z-2 " [src]="'/assets/man2.png'" width="55px" height="55px"/>
-            <div class="cubid position-absolute">
+            <img  
+            
+              src="{{accountservice.currentuser()?.photoUrl}}"          
+              dropdownToggle class="dropdown-toggle z-2 " width="55px" height="55px"
+              style="border-radius: 50%;"
+            
+            />
+            <div class="cubid position-absolute"> 
             </div>
 
             <div class="dropdown-menu rounded-4  " *dropdownMenu>
               <div class="d-flex dropdown-item">
                 <h6 class="text-capitalize text-center mt-3 me-2">Welcome {{accountservice.currentuser()?.username}}</h6>
-                <img  class=" z-2 mt-1 " [src]="'/assets/man2.png'" width="40px" height="40px"/>
+                <img  class=" z-2 mt-1 " src="{{accountservice.currentuser()?.photoUrl}}" width="40px" height="40px"
+                style="border-radius: 50%;"
+                />
               </div>
          
 

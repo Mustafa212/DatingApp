@@ -15,15 +15,15 @@ import { ToastrService } from 'ngx-toastr';
 export class NavComponent {
   private router = inject(Router)
   private toast = inject(ToastrService)
-  accountservice = inject(AccountService);
-
-  
+  accountservice = inject(AccountService);  
   model:any = {}
 
   login(){
     this.accountservice.login(this.model).subscribe({
       next: _ =>{
           this.router.navigateByUrl("/members")
+          console.log(this.accountservice.currentuser());
+          console.log(this.accountservice.currentuser()?.photoUrl);          
   
       },
       error: error => this.toast.error(error.error)
