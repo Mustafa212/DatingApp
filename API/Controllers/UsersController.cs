@@ -1,13 +1,10 @@
-﻿
-using System.Security.Claims;
-using API.Data;
-using API.DTOs;
+﻿using API.DTOs;
+using API.Extensions;
+using API.Helpers;
 using API.interfaces;
-using API.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 namespace API.Controllers;
 
 [Authorize]
@@ -15,10 +12,11 @@ namespace API.Controllers;
 public class UsersController(IUserRepositry userRepositry, IMapper mapper , IPhotoService photoService) : BaseApiController
 {
     [HttpGet]
-   public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers(){
+   public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams){
 
-    var users = await userRepositry.GetMembersAsync();
-
+    userParams.CurrentUserName = User.GetUsername();
+    var users = await userRepositry.GetMembersAsync(userParams);
+    Response.AddPaginationHeaders(users);
 
     return Ok(users);
    }

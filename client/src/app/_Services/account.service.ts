@@ -3,12 +3,14 @@ import { Injectable, inject, signal } from '@angular/core';
 import { map } from 'rxjs';
 import { User } from '../_models/user';
 import { environment } from '../../environments/environment';
+import { MembersService } from './members.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
   private http = inject(HttpClient);
+  //private memberService = inject(MembersService);
   baseurl = environment.apiUrl;
   currentuser = signal<User|null>(null)
   login(model:any){
@@ -19,7 +21,6 @@ export class AccountService {
                     
         }
       )
-
     );
   }
 
@@ -45,7 +46,8 @@ export class AccountService {
   }
 
   logout(){
-    localStorage.removeItem("user" );
+    localStorage.removeItem("user");
+    // this.memberService.paginatedResult.set(null);
     this.currentuser.set(null);
   }
 }

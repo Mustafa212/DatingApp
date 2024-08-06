@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit{
         this.registerForm.controls['confirmPassword'].updateValueAndValidity()
       }
     })
-  }
+  } 
 
   matchValues(matchTo:string) : ValidatorFn{
     return (control:AbstractControl)=>{

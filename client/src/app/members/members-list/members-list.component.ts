@@ -1,25 +1,46 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MembersService } from '../../_Services/members.service';
 import { MemberCardComponent } from "../member-card/member-card.component";
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule } from '@angular/forms';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @Component({
   selector: 'app-members-list',
   standalone: true,
-  imports: [MemberCardComponent],
+  imports: [MemberCardComponent , PaginationModule , FormsModule , ButtonsModule],
   templateUrl: './members-list.component.html',
   styleUrl: './members-list.component.css'
 })
 export class MembersListComponent implements OnInit {
 
   memberservice = inject(MembersService)
+  
+  
   ngOnInit(): void {
-    if (this.memberservice.members().length === 0) {
+
+
+    if (!this.memberservice.paginatedResult()) {
       
       this.loadMembers()
     }
   }
   loadMembers(){
     return this.memberservice.getMembers()
+  }
+
+
+  resetFilters(){
+    this.memberservice.resetUserParams()
+    this.loadMembers()
+  }
+
+  pageChanged(event:any){
+    if (this.memberservice.userParams().pageNumber !== event.page) {
+      this.memberservice.userParams().pageNumber = event.page
+      this.loadMembers()
+
+    }
   }
 
 }

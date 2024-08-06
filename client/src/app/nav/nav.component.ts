@@ -21,9 +21,7 @@ export class NavComponent {
   login(){
     this.accountservice.login(this.model).subscribe({
       next: _ =>{
-          this.router.navigateByUrl("/members")
-          console.log(this.accountservice.currentuser());
-          console.log(this.accountservice.currentuser()?.photoUrl);          
+          this.router.navigateByUrl("/members")      
   
       },
       error: error => this.toast.error(error.error)

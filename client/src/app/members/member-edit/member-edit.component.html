@@ -47,13 +47,13 @@
                         <strong>
                             last active:
                         </strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                     </div>
                     <div>
                         <strong>
                             member since:
                         </strong>
-                        <p>{{member.created}}</p>
+                        <p>{{member.created | date:'longDate'}}</p>
                     </div>
                 </div>
                 <div class="card-footer ">

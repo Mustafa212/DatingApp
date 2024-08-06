@@ -4,10 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Member } from '../../_models/Members';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {GalleryItem, GalleryModule, ImageItem}from'ng-gallery'
+import { TimeagoModule } from 'ngx-timeago';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-members-detail',
   standalone: true,
-  imports: [TabsModule , GalleryModule],
+  imports: [TabsModule , GalleryModule , TimeagoModule , DatePipe],
   templateUrl: './members-detail.component.html',
   styleUrl: './members-detail.component.css'
 })
@@ -23,7 +25,7 @@ export class MembersDetailComponent implements OnInit{
     this.loadmember()
   }
   loadmember(){
-    const username = this.router.snapshot.paramMap.get("username")
+    const username =  this.router.snapshot.paramMap.get("username")
     if (!username) {
       return
     }

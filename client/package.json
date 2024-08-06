@@ -26,6 +26,7 @@
     "ng2-file-upload": "^7.0.1",
     "ngx-bootstrap": "^12.0.0",
     "ngx-spinner": "^17.0.0",
+    "ngx-timeago": "^3.0.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -51,8 +52,7 @@
       "@angular/core": "$@angular/core",
       "@angular/animations": "$@angular/animations",
       "@angular/forms": "$@angular/forms"
-    }
-    ,
+    },
     "ng2-file-upload": {
       "@angular/common": "$@angular/common",
       "@angular/core": "$@angular/core"

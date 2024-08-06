@@ -1,11 +1,96 @@
-<div class="container">
-     <div class="mt-5 row row-gap-0 column-gap-5">
-        @for (item of memberservice.members(); track $index) {
+<div class="container  mt-5 m ">
+     <div class=" row row-gap-0 column-gap-5 ">
+        <div class="container pt-5">
+           
+            <form class="d-flex" #form="ngForm" (ngSubmit)="loadMembers()" >
+                <div class="d-flex mx-2">
+                    <label class="col-form-label">From Age</label>
+                    <input
+                        type="number"
+                        class="form-control ms-1"
+                        style="width: 70px;"
+                        name="minAge"
+                        [(ngModel)]="memberservice.userParams().minAge"
 
-            <div class="col-2 mt-5">
+                    >
+                </div>
+                <div class="d-flex mx-2">
+                    <label class="col-form-label">to Age</label>
+                    <input
+                        type="number"
+                        class="form-control ms-1"
+                        style="width: 70px;"
+                        name="maxAge"
+                        [(ngModel)]="memberservice.userParams().maxAge"
+
+                    >
+                </div>
+                <div class="d-flex mx-2">
+                        <button class="btn button" type="submit">Apply Fillters</button>
+                        <button class="btn btn-outline-info ms-1" (click)="resetFilters()">Reset Fillters</button>
+                </div>
+                
+                <div class="col">
+                    <div class="float-end btn-group">
+                        <button
+                            type="button"
+                            btnRadio="lastActive"
+                            (click)="loadMembers()"
+                            name="orderBy"
+                            class="button btn"
+                            [(ngModel)]="memberservice.userParams().orderBy"
+
+                        
+                        >Last Active</button>
+                        <button
+                            type="button"
+                            btnRadio="created"
+                            (click)="loadMembers()"
+                            name="orderBy"
+                            class="button btn"
+                            [(ngModel)]="memberservice.userParams().orderBy"
+
+                        
+                        >Newest Members</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+
+            <div class="text-start pt-2 ps-2">
+                <h6 class="text-secondary text-capitalize">found {{memberservice.paginatedResult()?.pagintaion?.totalItems}} matches </h6>
+            </div>
+        </div>
+        @for (item of memberservice.paginatedResult()?.items; track $index) {
+
+            <div class="col-2 mb-3 ">
 
                 <app-member-card [members]="item"></app-member-card>
             </div>
         }
      </div>
 </div>
+
+@if (memberservice.paginatedResult()?.pagintaion) {
+
+    <div  class="d-flex align-items-end justify-content-center mt-5">
+        
+        <pagination 
+            
+            [boundaryLinks]="true" 
+            [totalItems]="memberservice.paginatedResult()?.pagintaion!.totalItems"
+            [itemsPerPage]="memberservice.paginatedResult()?.pagintaion!.itemsPerPage"
+            [maxSize]="10"
+            (pageChanged)="pageChanged($event)"
+            [(ngModel)]="memberservice.paginatedResult()?.pagintaion!.currentPage"
+            previousText="&lsaquo;" 
+            nextText="&rsaquo;" 
+            firstText="&laquo;" 
+            lastText="&raquo;">
+            
+        </pagination>
+    
+    </div>
+}

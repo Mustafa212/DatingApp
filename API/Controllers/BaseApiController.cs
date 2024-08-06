@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
-
+[ServiceFilter(typeof(LogUserActivity))]
 [ApiController]
 
 [Route("api/[controller]")]
