@@ -4,6 +4,7 @@ import { AccountService } from '../_Services/account.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MembersService } from '../_Services/members.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class NavComponent {
   private router = inject(Router)
   private toast = inject(ToastrService)
-  accountservice = inject(AccountService);  
+  accountservice = inject(AccountService);
   model:any = {}
 
   login(){

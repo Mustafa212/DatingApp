@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MembersService } from '../../_Services/members.service';
 import { MemberCardComponent } from "../member-card/member-card.component";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -12,7 +12,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
   templateUrl: './members-list.component.html',
   styleUrl: './members-list.component.css'
 })
-export class MembersListComponent implements OnInit {
+export class MembersListComponent implements OnInit  , OnDestroy{
 
   memberservice = inject(MembersService)
   
@@ -42,5 +42,7 @@ export class MembersListComponent implements OnInit {
 
     }
   }
-
+  ngOnDestroy(): void {
+    this.memberservice.paginatedResult.set(null)
+}
 }

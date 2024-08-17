@@ -1,0 +1,48 @@
+.list{
+    width: 100vw;
+    height: 100vh;
+}
+
+.button{
+    background: var(--gradient-color);
+    color: white;
+    transition: all 0.3s ease-in;
+    border-radius: 10%;    
+    border: #000;  
+
+}
+
+.button:active , .button:focus,.button:hover{
+    background: pink;
+    color: black;
+}
+
+::ng-deep .page-item {
+    border: none;       
+    margin: 0 5px;  
+}
+
+
+
+::ng-deep .page-link {
+    border: none;        
+    color: #000;        
+    background: transparent;
+    transition: all 0.5s ease-in-out;   
+    border-radius: 50%; 
+}
+
+::ng-deep .page-item.active .page-link {
+    transform: translateY(-10px);
+    background-color: hsl(178,55%,28%); 
+    color: white;             
+}
+
+
+::ng-deep .page-item:hover .page-link {
+    transform: translateY(-5px);
+    background-color: hsl(177, 40%, 45%); 
+    opacity: 0.8;
+    color: white;       
+}
+

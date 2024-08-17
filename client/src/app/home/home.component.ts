@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RegisterComponent } from "../register/register.component";
-import { HttpClient } from '@angular/common/http';
 import Aos from 'aos'
 @Component({
     selector: 'app-home',
