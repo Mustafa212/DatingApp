@@ -12,25 +12,29 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
   templateUrl: './members-list.component.html',
   styleUrl: './members-list.component.css'
 })
-export class MembersListComponent implements OnInit  , OnDestroy{
+export class MembersListComponent implements OnInit  {
 
   memberservice = inject(MembersService)
   
   
   ngOnInit(): void {
 
-
+    
     if (!this.memberservice.paginatedResult()) {
       
       this.loadMembers()
     }
   }
   loadMembers(){
+    console.log("am here");
+    
     return this.memberservice.getMembers()
   }
 
 
   resetFilters(){
+    console.log("reset");
+    
     this.memberservice.resetUserParams()
     this.loadMembers()
   }
@@ -42,7 +46,4 @@ export class MembersListComponent implements OnInit  , OnDestroy{
 
     }
   }
-  ngOnDestroy(): void {
-    this.memberservice.paginatedResult.set(null)
-}
 }

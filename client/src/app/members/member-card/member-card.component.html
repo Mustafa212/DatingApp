@@ -44,7 +44,11 @@
             ></i>
 
           </a>
-          <a  class="info__social-link ">
+          <a  class="info__social-link "
+            routerLink="/members/{{members().username}}"
+            [queryParams]="{tab:'messages'}"
+          
+          >
             <i class="fa fa-envelope " style="color: rgb(182, 51, 3);"></i>
 
           </a>

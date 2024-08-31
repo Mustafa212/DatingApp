@@ -13,14 +13,15 @@ export class AccountService {
   private http = inject(HttpClient);
   baseurl = environment.apiUrl;
   private likeService = inject(LikesService)
-
   currentuser = signal<User|null>(null)
   login(model:any){
     return this.http.post<User>(this.baseurl+"account/login" , model).pipe(
       map(
         user=>{
-          if (user)this.setCurrentUser(user)
-                    
+          console.log(user.gender);
+          
+          if(user) this.setCurrentUser(user)
+          return user  
         }
       )
     );
@@ -42,9 +43,10 @@ export class AccountService {
   }
 
   setCurrentUser(user:User){
-    localStorage.setItem("user" , JSON.stringify(user));
     this.currentuser.set(user);
+    localStorage.setItem("user" , JSON.stringify(user));
     this.likeService.getLikeIds()
+    
 
 
   }

@@ -1,0 +1,87 @@
+.msdg {
+  width: 100%;
+  height: fit-content;
+  transition: 0.3s all ease-in-out;
+}
+
+.messageitself {
+  width: 300px;
+  height: fit-content;
+  text-align: start;
+  color: rgb(233, 233, 233);
+  background-color: #2e3b5b;
+  padding: 10px;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.ms2 {
+  color: white;
+  background-color: #000929;
+  border-radius: 0px 10px 10px 10px;
+}
+.inputmssdg {
+  width: 97%;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(247, 247, 253, 255);
+  padding: 10px;
+}
+.inputmssdg:focus,
+.inputmssdg:active {
+  border: none;
+}
+.btn:hover {
+  background-color: white !important;
+}
+
+.highlighted {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  transition: 0.3s all ease-in-out;
+}
+
+.delete-button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.actionbtns {
+  width: 40px;
+  height: 40px;
+  background-color: #2e3b5b;
+  color: white;
+  border-radius: 50%;
+  filter: drop-shadow(1px 1px 1px black);
+  transition: 0.8s all ease-in-out;
+
+}
+
+.btnhighlighted {
+  position: absolute;
+  top: 48%;
+  left: 45%;
+  transform: translate(-50% , -50%);
+  z-index: 1000;
+  transition: 0.8s all ease-in-out;
+}
+
+.cancelbutton{
+    left: 53%;
+}
+.cancelbutton:hover{
+  color: black;
+}
+
+
+.deletebutton:hover{
+  color: red;
+
+}

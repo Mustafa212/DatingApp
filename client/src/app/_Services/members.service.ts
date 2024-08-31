@@ -28,12 +28,19 @@ export class MembersService {
 
 
 
-  resetUserParams(){
+  resetUserParams(){    
     this.userParams.set(new UserParams(this.user))
   }
 
   getMembers() {
-    const response  =  this.memberCache.get(Object.values(this.userParams()).join('-'))
+    if(this.user !== this.accountservice.currentuser()){
+      this.user = this.accountservice.currentuser()
+      this.userParams.set(new UserParams(this.accountservice.currentuser()))
+
+    }
+
+    
+    let response  =  this.memberCache.get(Object.values(this.userParams()).join('-'))    
     if (response) {
       return setPaginationResponse(response , this.paginatedResult)
     }
@@ -43,7 +50,7 @@ export class MembersService {
 
 
     params = params.append('minAge' , this.userParams().minAge)
-    params = params.append('maxAge' , this.userParams().maxAge)
+    params = params.append('maxAge' , this.userParams().maxAge)     
     params = params.append('gender' , this.userParams().gender)
     params = params.append('orderBy' , this.userParams().orderBy)
 

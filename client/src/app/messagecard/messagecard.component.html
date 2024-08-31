@@ -1,0 +1,13 @@
+<div class="w-100 px-3 rounded-2 d-flex justify-content-evenly align-items-center cardd" style="height: 80px; border-bottom: 0.5px solid rgb(182, 182, 182);">
+    <img [src]="isOutbox ?  message()?.recipientPhotoUrl : message()?.senderPhotoUrl" alt="somebody" width="50px" class="rounded-5">
+    <div class="pt-3 ps-2 h-100 " style="width: 60%; ">
+        <h6>{{isOutbox ? message()?.recipientUsername:message()?.senderUsername}}</h6>
+        <p class="text-body-tertiary">{{message()?.content}}</p>
+    </div>
+    <div class="d-flex flex-column justify-content-evenly align-items-center">
+        <span class="text-body-tertiary mb-3">{{message()?.messageSent | timeago}}</span>
+        <i class="fa" [ngClass]="(!message()?.dateRead && message()?.recipientUsername !== username()) ? 'fa-check':'fa-check-double blue'"></i>
+
+    </div>
+</div>
+

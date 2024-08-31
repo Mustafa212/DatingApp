@@ -1,0 +1,67 @@
+@for (item of messagHighlited; track $index) {
+
+    @if(item.message.senderUsername == accountService.currentuser()?.username){
+        <div 
+        class="msdg p-0 mb-3 d-flex flex-column align-items-end" 
+        [ngClass]=" showBlur() && item.highlighted ? 'highlighted':''"
+        >
+            <div class=" messageitself " style="cursor: pointer;" (click)="toggleHighlight(item.message)"   >
+                <span >{{item.message.content}}</span>
+            </div>
+            <span class="ms-2 ">{{item.message.messageSent | timeago}}</span>
+
+        </div>
+    }
+    @else{
+        <div 
+        class="msdg p-0 mb-3 "
+        [ngClass]="showBlur() && item.highlighted  ? 'highlighted':''">
+            <div class="messageitself ms2 " style="cursor: pointer;" (click)="toggleHighlight(item.message)" >
+                <span >{{item.message.content}}</span>
+            </div>
+            <span class="ms-2 ">{{item.message.messageSent | timeago}}</span>
+
+        </div>
+
+    }
+
+}
+<button class="btn deletebutton actionbtns"
+[ngClass]="(showBlur())? 'btnhighlighted':'d-none'"
+(click)="deleteMessage(selectedItem()!.message!.id)"
+>
+    <i class="fa fa-trash"></i>
+</button>
+
+
+<button class="btn cancelbutton actionbtns"
+[ngClass]="(showBlur())? 'btnhighlighted':'d-none'"
+(click)="toggleHighlight(selectedItem()!.message)"
+>
+    <i class="fa fa-cancel"></i>
+</button>
+
+
+<div class=" d-flex justify-content-evenly align-items-center px-4 sticky-bottom" style="height: 60px; width: 100%; background-color: white;">
+    <img src="../../assets/smile.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+    <div class="flex-grow-1">
+        <form #messageForm="ngForm" id="messageForm" (ngSubmit)="sendMsdg()">
+            <input 
+                type="text" 
+                class="mx-2 inputmssdg" 
+                placeholder="send Private Message"
+                required
+                name="messageContent"
+                [(ngModel)]="messageContent"
+                >
+        </form>
+
+    </div>
+    <div>
+        <button style="background-color: #2e3b5b; width: 60px; " class="btn" type="submit" form="messageForm" [disabled]="!messageForm.valid">
+            <img src="../../assets/paper.png" alt="" width="30px"  
+            >
+        </button>
+       
+    </div>
+</div>

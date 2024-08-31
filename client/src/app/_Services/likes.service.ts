@@ -12,7 +12,7 @@ export class LikesService {
   baseUrl = environment.apiUrl
   private http = inject(HttpClient)
   likedIds = signal<number[]>([])
-paginatedResult = signal<PaginatedResult<Member[]> | null>(null)
+ paginatedResult = signal<PaginatedResult<Member[]> | null>(null)
   toggleLike(targetId: number){
     return this.http.post(`${this.baseUrl}likes/${targetId}`,{})
   }

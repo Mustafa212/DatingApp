@@ -17,11 +17,13 @@ export class NavComponent {
   private router = inject(Router)
   private toast = inject(ToastrService)
   accountservice = inject(AccountService);
+  memberService = inject(MembersService);
   model:any = {}
 
   login(){
     this.accountservice.login(this.model).subscribe({
-      next: _ =>{
+      next: x =>{
+          
           this.router.navigateByUrl("/members")      
   
       },
@@ -34,6 +36,7 @@ export class NavComponent {
   }
   logout(){
     this.accountservice.logout()
+    this.memberService.paginatedResult.set(null)
     this.router.navigateByUrl("/")
   }
 

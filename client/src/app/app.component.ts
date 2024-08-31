@@ -28,6 +28,6 @@ export class AppComponent implements OnInit {
     
    
   }
-
+  title='client'
   
 }

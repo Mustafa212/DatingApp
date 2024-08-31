@@ -1,4 +1,3 @@
-@if (member) {
 
 
     <div class="container details row">
@@ -49,7 +48,7 @@
                         <i class="fa fa-heart " style="color: rgb(240, 1, 1);"></i>
             
                       </a>
-                      <a  class="info__social-link ">
+                      <a  class="info__social-link " (click)="selectTab('messages')">
                         <i class="fa fa-envelope " style="color: rgb(182, 51, 3);"></i>
             
                       </a>
@@ -60,7 +59,7 @@
 
         <div class="col-8">
 
-            <tabset class="member-tabset">
+            <tabset class="member-tabset" #memberTabs>
                 <tab heading="About {{member.knownAs}}" class="p-3">
                     <h4>Intro</h4>
                     <p>{{member.introduction}}</p>
@@ -81,7 +80,10 @@
 
                 </tab>
                 <tab heading="messages"  class="p-3">
-                    <p>mess</p>
+                    <div class="" style="background:  rgba(247,247,253,255);">
+
+                        <app-member-messages [username]="member.username"></app-member-messages>
+                    </div>
                 </tab>
             </tabset>
         </div>
@@ -89,4 +91,4 @@
     
 
 
-}
+

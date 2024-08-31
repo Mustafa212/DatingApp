@@ -72,3 +72,16 @@ body {
   color: #404040;
 }
 
+html::-webkit-scrollbar {
+  display: none !important;
+  scrollbar-width: 0;
+  
+
+  }
+html{
+  scroll-behavior: smooth;
+} 
+body{
+  scrollbar-width: none;
+
+}

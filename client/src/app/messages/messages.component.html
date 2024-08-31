@@ -1,1 +1,115 @@
-<p>messages works!</p>
+
+<section class=" justify-content-center align-items-center pt-5 d-flex" style="width: 100vw; height: 100vh;">
+  
+    <div class="container  messagebox mt-5  d-flex justify-content-between p-0 ">
+        <div class="message-side-panel  h-100 d-flex flex-column justify-content-between align-items-center pb-5 me-3" style="width: 5%;border-right: 0.5px solid rgb(182, 182, 182);;">
+            <div class=" h-25 d-flex flex-column justify-content-evenly pt-5" >
+                <div class="position-relative">
+                    <div class="position-absolute text-bg-danger  text-center pb-4" 
+                    style="top: 1%; right: 3%; border-radius: 50%; width: 20px; height: 20px; box-sizing: border-box;"
+                    >{{messageservice.numberofmessages()}}</div>
+                    <img src="../../assets/message.png" alt="unread" width="50px" style="cursor: pointer;" 
+                    btnRadio="unread" [(ngModel)]="container" (click)="loadMessages()"
+                    title="unread"
+                    >
+                    @if ( container == "unread") {
+                        <h6 style="transform: translateX(-5%);" >unread</h6>
+
+                    }
+
+                </div>
+                <img src="../../assets/mail.png" alt="mail" width="40px" style="cursor: pointer;"
+                btnRadio="Inbox" [(ngModel)]="container" (click)="loadMessages()"
+                title="Inbox"
+                >
+                @if ( container == "Inbox") {
+                    <h6 style="transform: translateX(-5%);" >Inbox</h6>
+
+                }
+
+
+                <img src="../../assets/mail-out.png" alt="mailout" width="40px" style="cursor: pointer;"
+                btnRadio="Outbox" [(ngModel)]="container" (click)="loadMessages()"
+                title="Outbox"
+                >
+                @if ( container == "Outbox") {
+                    <h6 style="transform: translateX(-5%);" >Outbox</h6>
+
+                }
+
+                
+            </div>
+            <div class="mb-5">
+                <img src="{{accountService.currentuser()?.photoUrl}}" alt="" class="rounded-5" width="50px" >
+            </div>
+        </div>
+        <div class="w-100  mt-4 d-flex  " style="height: 90%;"> 
+
+            <div class="h-100 col-3 pt-4">
+                @if (!messageservice.uniqueUsers() || messageservice.uniqueUsers()?.length === 0) {
+                    <div class="text-center">
+                        <h5>No Message Yet</h5>
+                    </div>
+                }
+                @else {
+                    @for (item of messageservice.uniqueUsers(); track item.id) {
+                        <app-messagecard [message]="item" [container]="container" (click)="emitUsername(item)" [username]="accountService.currentuser()?.username"></app-messagecard>
+                    }
+                }
+               
+                
+            </div>
+
+
+            
+
+            <div class="h-100 col-9  p-3 d-flex flex-column " >
+                @if (currentUserSelected()) {
+                    <div class="d-flex align-items-center ps-4 " style="height: 11.5%;border-bottom: 0.5px solid rgb(182, 182, 182);">
+                        <img [src]="isInbox? (currentUserSelected()?.senderPhotoUrl || '../../../../assets/user1.png') : (currentUserSelected()?.recipientPhotoUrl || '../../../../assets/user1.png')" alt="" width="50px" class="me-3 rounded-5 ">
+                        <div class="d-flex flex-column justify-content-evenly flex-grow-1">
+                            <span>{{isInbox? currentUserSelected()?.senderUsername : currentUserSelected()?.recipientUsername }}</span>
+                            <div class="d-flex align-items-baseline">
+                            <div class="circle me-2 " style="width: 7px;height: 7px; border-radius: 50%; background-color: green;"></div>
+                            <span class="fs-6 ">Online</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-evenly" style="width: 150px;">
+                        <img src="../../assets/cam-recorder.png" alt="" width="30px" style="cursor: pointer;">
+                        <img src="../../assets/phone-call.png" alt="" width="30px" style="cursor: pointer;">
+                        <img src="../../assets/categories.png" alt="" width="30px" style="cursor: pointer;">
+                    </div>
+
+                </div>
+                <div class="flex-grow-1 d-flex flex-column  align-items-center msdgholder px-2" 
+                style="overflow-y: scroll;"
+                >
+                    <div class="flex-grow-1  text-start w-100 d-flex align-items-end  position-relative  "
+                    
+
+                    >
+                        <app-member-messages [username]="currentUserSelectedName()" 
+                        class="flex-grow-1" [showBlur]="showblur()" (showBackdrop)="toggleBlur($event)" 
+                        ></app-member-messages>
+                        <div class="backdrop" *ngIf="showblur()"></div>
+
+                    </div>
+
+                </div>
+                }
+                @else {
+                    <div class="d-flex justify-content-center align-items-center msdgholder h-100">
+                        <h5>
+                            Click on somechat to show the messages between u and him 
+                        </h5> 
+                    </div>
+                }
+              
+            </div>
+          
+        </div>
+       
+        
+    </div>
+</section>
+

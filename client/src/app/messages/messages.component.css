@@ -1,0 +1,27 @@
+.messagebox{
+    height:90%;
+}
+
+.msdgholder{
+    background:  rgba(247,247,253,255);
+    border-radius: 10px;
+}
+.msdgholder::-webkit-scrollbar{
+    display: none !important;
+    scrollbar-width: 0;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    /* background-color: green; */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: 999;
+}
+
+/* msdg sent #000929 */
+/* msdg got #2e3b5b button too */

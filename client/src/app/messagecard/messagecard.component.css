@@ -1,0 +1,27 @@
+.cardd:hover {
+    background-color: #eaeaea9b;
+    border-radius: 40%;
+    cursor: pointer;
+}
+
+.active{
+    background-color: #eaeaea9b;
+
+}
+
+span{
+    font-size: 14px;
+    text-wrap: nowrap;
+}
+
+p{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+
+.blue{
+    color: blue;
+}
