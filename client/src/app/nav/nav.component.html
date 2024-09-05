@@ -18,6 +18,9 @@
               <li class="nav-item">
                 <a  routerLink="/messages" routerLinkActive="xd" class="nav-link ">Messages</a>
               </li>
+              <li *appHasRole="['Admin' , 'Moderator']" class="nav-item">
+                <a  routerLink="/admin" routerLinkActive="xd" class="nav-link ">Admin</a>
+              </li>
     
         
             }

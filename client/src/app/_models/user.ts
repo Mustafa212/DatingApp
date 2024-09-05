@@ -4,4 +4,5 @@ export type User=  {
     gender:string;
     knwonAs:string;
     photoUrl?:string;
+    roles:string[];
 }
