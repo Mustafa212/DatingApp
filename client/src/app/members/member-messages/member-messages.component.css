@@ -60,7 +60,7 @@
   color: white;
   border-radius: 50%;
   filter: drop-shadow(1px 1px 1px black);
-  transition: 0.8s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 
 }
 
@@ -70,7 +70,7 @@
   left: 45%;
   transform: translate(-50% , -50%);
   z-index: 1000;
-  transition: 0.8s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .cancelbutton{

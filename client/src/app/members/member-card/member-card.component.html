@@ -34,7 +34,9 @@
 
       <div class="info__social ">
           <a routerLink="/members/{{members().username}}" class="info__social-link me-2">
-            <i class="fa fa-user "  style="color:blue"></i>
+            <span [class.is-online]="isOnline()" style="color:grey">
+              <i class="fa fa-user"  ></i>
+            </span>
 
           </a>
           <a  class="info__social-link me-2" (click)="toggleLike()">

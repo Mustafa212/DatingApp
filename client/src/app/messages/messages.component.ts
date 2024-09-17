@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { Message } from '../_models/message';
 import { MemberMessagesComponent } from "../members/member-messages/member-messages.component";
 import { NgIf } from '@angular/common';
+import { PresenceService } from '../_Services/presence.service';
 
 @Component({
   selector: 'app-messages',
@@ -19,6 +20,7 @@ import { NgIf } from '@angular/common';
 export class MessagesComponent implements OnInit  {
   messageservice = inject(MessageService);
   accountService = inject(AccountService)
+  presenceService= inject(PresenceService)
   pageNumber =1
   pageSize =5
   container = 'Inbox'
@@ -29,15 +31,13 @@ export class MessagesComponent implements OnInit  {
 
 
 
-  private cdr = inject(ChangeDetectorRef);
+  //private cdr = inject(ChangeDetectorRef);
 
-  currentUserSelectedName = signal<string>('mostafa')
-  currentUserSelected = signal<Message|null>(null)
+  // currentUserSelectedName = signal<string>('')
+  // currentUserSelected = signal<Message|null>(null)
 
   ngOnInit() {
     this.loadMessages()
-    
-
   }
   loadMessages(){
     this.messageservice.getMessages(this.pageNumber , this.pageSize , this.container)
@@ -52,25 +52,23 @@ export class MessagesComponent implements OnInit  {
 
 
   emitUsername(item:Message){
+    
     if(this.container === 'Inbox'){
-      this.currentUserSelectedName.set(item.senderUsername)
-
+      this.messageservice.currentUserSelectedName.update(()=>item.senderUsername)
     }
     else{
-      this.currentUserSelectedName.set(item.recipientUsername)
-
+      this.messageservice.currentUserSelectedName.update(()=>item.recipientUsername)
     }
-    this.currentUserSelected.set(item)
-    this.cdr.detectChanges()
+    this.messageservice.currentUserSelected.update(()=>item)
+    // console.log(this.messageservice.currentUserSelectedName());
+    
+    //this.cdr.detectChanges()
     
   }
 
   toggleBlur(event:any){
-    console.log("in toggle blur");
-    
-    
     this.showblur.set(event)
-    this.cdr.detectChanges()
+    // this.cdr.detectChanges()
     console.log(this.showblur);
   }
  

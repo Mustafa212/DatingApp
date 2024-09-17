@@ -3,8 +3,8 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { map } from 'rxjs';
 import { User } from '../_models/user';
 import { environment } from '../../environments/environment';
-import { MembersService } from './members.service';
 import { LikesService } from './likes.service';
+import { PresenceService } from './presence.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class AccountService {
   private http = inject(HttpClient);
   baseurl = environment.apiUrl;
   private likeService = inject(LikesService)
+  private presenceService = inject(PresenceService)
   currentuser = signal<User|null>(null)
   roles = computed(()=>{
     const user = this.currentuser()
@@ -57,7 +58,7 @@ export class AccountService {
     this.currentuser.set(user);
     localStorage.setItem("user" , JSON.stringify(user));
     this.likeService.getLikeIds()
-    
+    this.presenceService.createHubConnection(user)
 
 
   }
@@ -66,5 +67,6 @@ export class AccountService {
     localStorage.removeItem("user");
     // this.memberService.paginatedResult.set(null);
     this.currentuser.set(null);
+    this.presenceService.stopHubConnection()
   }
 }

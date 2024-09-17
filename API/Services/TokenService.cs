@@ -31,9 +31,9 @@ public class TokenService(IConfiguration config , UserManager<AppUser> userManag
 
        var tokenDescriptor = new SecurityTokenDescriptor
        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddDays(7),
-            SigningCredentials = creds
+          Subject = new ClaimsIdentity(claims),
+          Expires = DateTime.UtcNow.AddDays(7),
+          SigningCredentials = creds
 
        };
 
@@ -43,11 +43,6 @@ public class TokenService(IConfiguration config , UserManager<AppUser> userManag
        var token = tokenHandler.CreateToken(tokenDescriptor);
 
 
-       return tokenHandler.WriteToken(token);
-
-
-
-
-    
+       return tokenHandler.WriteToken(token);   
     }
 }

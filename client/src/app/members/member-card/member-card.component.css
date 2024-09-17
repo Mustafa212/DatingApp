@@ -161,3 +161,22 @@ span{
   .info:hover .info__border, .info:hover .info__data, .info:hover .info__social {
     transform: translateX(0);
   } 
+
+
+
+  .is-online{
+    animation:fa-blink 1.5s linear infinite;
+    color: blue !important;
+  }
+
+  @keyframes fa-blink {
+    from
+    {
+      opacity: 1;
+    }
+    to{
+      opacity: 0.4;
+
+    }
+  }
+  

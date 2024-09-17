@@ -64,14 +64,17 @@
             
 
             <div class="h-100 col-9  p-3 d-flex flex-column " >
-                @if (currentUserSelected()) {
+                @if (messageservice.currentUserSelected()) {
                     <div class="d-flex align-items-center ps-4 " style="height: 11.5%;border-bottom: 0.5px solid rgb(182, 182, 182);">
-                        <img [src]="isInbox? (currentUserSelected()?.senderPhotoUrl || '../../../../assets/user1.png') : (currentUserSelected()?.recipientPhotoUrl || '../../../../assets/user1.png')" alt="" width="50px" class="me-3 rounded-5 ">
+                        <img [src]="isInbox? (messageservice.currentUserSelected()?.senderPhotoUrl || '../../../../assets/user1.png') : (messageservice.currentUserSelected()?.recipientPhotoUrl || '../../../../assets/user1.png')" alt="" width="50px" class="me-3 rounded-5 ">
                         <div class="d-flex flex-column justify-content-evenly flex-grow-1">
-                            <span>{{isInbox? currentUserSelected()?.senderUsername : currentUserSelected()?.recipientUsername }}</span>
+                            <span>{{isInbox?  messageservice.currentUserSelected()?.senderUsername :messageservice.currentUserSelected()?.recipientUsername }}</span>
                             <div class="d-flex align-items-baseline">
-                            <div class="circle me-2 " style="width: 7px;height: 7px; border-radius: 50%; background-color: green;"></div>
-                            <span class="fs-6 ">Online</span>
+                            @if (presenceService.onlineUsers().includes(messageservice.currentUserSelectedName())) {
+                                <div class="circle me-2 " style="width: 7px;height: 7px; border-radius: 50%; background-color: blue;"></div>
+                                <span class="fs-6 ">Online</span>
+                            }
+                          
                         </div>
                     </div>
                     <div class="d-flex justify-content-evenly" style="width: 150px;">
@@ -84,12 +87,15 @@
                 <div class="flex-grow-1 d-flex flex-column  align-items-center msdgholder px-2" 
                 style="overflow-y: scroll;"
                 >
-                    <div class="flex-grow-1  text-start w-100 d-flex align-items-end  position-relative  "
-                    
-
+                    <div class="flex-grow-1 text-start w-100 d-flex align-items-end position-relative"
                     >
-                        <app-member-messages [username]="currentUserSelectedName()" 
-                        class="flex-grow-1" [showBlur]="showblur()" (showBackdrop)="toggleBlur($event)" 
+                        <app-member-messages
+
+                       
+                        class="flex-grow-1" [showBlur]="showblur()" 
+                        (showBackdrop)="toggleBlur($event)" 
+                        [username]="messageservice.currentUserSelectedName()" 
+                        
                         ></app-member-messages>
                         <div class="backdrop" *ngIf="showblur()"></div>
 

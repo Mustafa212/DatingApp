@@ -32,3 +32,25 @@
 .card-body{
    padding: 10px 10px;
 }
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    /* background-color: green; */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: 999;
+}
+
+.ss{
+    width: 100%;
+    height: 650px;
+    background-color:  rgba(247,247,253,255);
+    overflow-y: scroll;
+}
+.ss::-webkit-scrollbar{
+    display: none !important;
+    scrollbar-width: 0;
+}
